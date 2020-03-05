@@ -17,5 +17,5 @@ for queue in REDIS_QUEUES.split(','):
 dramatiq.set_broker(broker)
 
 app = DashboardApp(broker=broker, prefix='')
-print(f'Starting @ https://{HOST}:{PORT}')
+print(f'Starting @ http://{HOST}:{PORT}')
 bjoern.run(app, HOST, PORT)
