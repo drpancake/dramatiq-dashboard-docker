@@ -8,10 +8,11 @@ from dramatiq_dashboard import DashboardApp
 
 REDIS_URL = os.environ['REDIS_URL']
 REDIS_QUEUES = os.environ.get('REDIS_QUEUES', 'default')
+REDIS_NAMESPACE = os.environ.get('REDIS_NAMESPACE', 'default')
 PORT = int(os.environ.get('PORT', 8080))
 HOST = os.environ.get('HOST', '0.0.0.0')
 
-broker = RedisBroker(url=REDIS_URL)
+broker = RedisBroker(url=REDIS_URL, namespace=REDIS_NAMESPACE)
 for queue in REDIS_QUEUES.split(','):
     broker.declare_queue(queue)
 dramatiq.set_broker(broker)
