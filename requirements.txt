@@ -1,2 +1,2 @@
-dramatiq-dashboard==0.2.2
+dramatiq-dashboard==0.2.3
 bjoern==3.1.0
